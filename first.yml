@@ -1,0 +1,23 @@
+---
+- name: Manage MOTD Banner on Cisco Routers
+  hosts: routers
+  gather_facts: no
+  tasks:
+    - name: Set MOTD banner
+      ios_banner:
+        banner: motd
+        text: |
+          ******************************************************
+          WARNING: Unauthorized access to this device is prohibited.
+          All activities will be monitored and reported.
+          ******************************************************
+        state: present
+    - name: Set Login banner
+      ios_banner:
+        banner: login
+        text: |
+          ******************************************************
+          NOTICE: This system is for authorized users only.
+          Unauthorized access will be prosecuted to the fullest extent of the law.
+          ******************************************************
+        state: present    
