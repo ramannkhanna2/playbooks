@@ -4,7 +4,7 @@
   hosts: routers
   tasks:
     - name: Get config for IOS devices
-      cisco.ios.ios_facts:
+      ios_facts:
         gather_subset: all
 
     - name: Display the config
